@@ -51,7 +51,6 @@ print "Server should be good to go. Please proceed."
 
 line1 = "IP to server is: " + str(float_ip)
 line2 = "SSH key used is: " + keyname
-
 target.write(line1)
 target.write("\n")
 target.write(line2)

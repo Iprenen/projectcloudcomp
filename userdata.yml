@@ -8,15 +8,19 @@ packages:
     - python-pip
     - python-virtualenv
     - rabbitmq-server
+    - gmsh libmed1
 
 runcmd:
     - mkdir /home/ubuntu/tmp
     - git clone https://github.com/Iprenen/projectcloudcomp.git
     - mkdir /home/ubuntu/messaging
+    - mkdir /home/ubuntu/messaging/geo
+    - mkdir /home/ubuntu/messaging/msh
     - mv projectcloudcomp home/ubuntu/messaging
     - cd /messaging
     - virtualenv --no-site-packages venv
     - source venv/bin/activate
     - pip install celery
     - curl -s http://fenicsproject.org/fenics-install.sh | bash
+    - /home/ubuntu/messaging/projectcloudcomp/./run.sh 0 30 10 200 3
 

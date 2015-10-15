@@ -30,8 +30,9 @@ mesh = []
 req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj")
 response = urllib2.urlopen(req)
 meshObject = response.read().split()
+
 for t in meshObject:
-mesh.append(t)
+    mesh.append(t)
 
 A = mesh[:4]
 B = mesh[4:8]
@@ -44,6 +45,15 @@ job = group(calculate.s(A),
             calculate.s(C),
             calculate.s(D),
             calculate.s(E))
+
+tweetTask = job.apply_async()
+	print "Celery is working..."
+	counter = 0
+	while (tweetTask.ready() == False):
+		print "... %i s" %(counter)
+		counter += 5
+		time.sleep(5)
+	print "The task is done!
 
 '''
 

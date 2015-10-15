@@ -1,9 +1,5 @@
 #!flask/bin/python
 
-from celery import Celery
-from celery import group
-from tasks import wordcount
-from flask import Flask, jsonify
 import subprocess
 import sys
 import os
@@ -11,6 +7,11 @@ import swiftclient.client
 import json
 import time
 import urllib2
+sys.path.append('/navier_stokes_solver')
+from celery import Celery
+from celery import group
+from tasks import wordcount
+from flask import Flask, jsonify
 from collections import Counter
 
 import subprocess

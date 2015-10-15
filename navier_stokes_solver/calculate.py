@@ -2,7 +2,7 @@ from celery import Celery
 
 app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 
-@app.calculate
+@app.task
 def calculate(adresses):
     for adress in adresses:
         req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)

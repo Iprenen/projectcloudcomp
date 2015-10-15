@@ -10,7 +10,6 @@ import urllib2
 sys.path.append('/navier_stokes_solver')
 from celery import Celery
 from celery import group
-from flask import Flask, jsonify
 from collections import Counter
 
 import subprocess

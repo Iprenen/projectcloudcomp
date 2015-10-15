@@ -8,9 +8,9 @@ app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152
 @app.task
 def calculate():
     subprocess.call("export LC_ALL=C",shell = True)
-   # for adress in adresses:
-   # adress = 'r2a9n200.msh.xml'
-   # req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
+    for adress in adresses:
+        adress = 'r2a9n200.msh.xml'
+        #req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
     #response = urllib2.urlopen(req)
     #obj = response.read()
     line = "navier_stokes_solver/airfoil 1 0.0001 10. 1 test.xml"

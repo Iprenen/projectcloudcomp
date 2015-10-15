@@ -1,5 +1,6 @@
 from celery import Celery
 
+app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 
 @app.calculate
 def calculate(adresses):

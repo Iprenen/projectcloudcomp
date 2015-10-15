@@ -13,7 +13,7 @@ def calculate():
     response = urllib2.urlopen(req)
     obj = response.read()
 
-    line = "sudo navier_stokes_solver/airfoil 1 0.0001 10. 0.1"
+    line = "sudo navier_stokes_solver/airfoil 1 0.0001 10. 1"
     subprocess.call(line, obj)
 
 

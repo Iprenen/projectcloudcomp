@@ -26,16 +26,10 @@ for t in meshObject:
     mesh.append(t)
 
 A = mesh[:4]
-B = mesh[4:8]
-C = mesh[8:12]
-D = mesh[12:16]
-E = mesh[16:]
+B = mesh[4:]
 
 job = group(calculate.s(A), 
-            calculate.s(B), 
-            calculate.s(C),
-            calculate.s(D),
-            calculate.s(E))
+            calculate.s(B),)
 
 meshTask = job.apply_async()
 print "Celery is working..."

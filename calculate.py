@@ -18,6 +18,5 @@ def calculate(adresses):
     #response = urllib2.urlopen(req)
     #obj = response.read()
     line = "navier_stokes_solver/airfoil 1 0.0001 10. 1 test.xml"
-    p = subprocess.call(line, shell = True)
-    print "Working"
-    p.communicate()
+    subprocess.call(line, shell = True)
+    print "done with calculate"

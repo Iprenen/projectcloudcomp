@@ -13,7 +13,7 @@ import subprocess
     #response = urllib2.urlopen(req)
     #obj = response.read()
 
-line = "navier_stokes_solver/airfoil 1 0.0001 10. 1 test.xml"
+line = "navier_stokes_solver/./airfoil 1 0.0001 10. 1 test.xml"
 subprocess.call(line)
 
 

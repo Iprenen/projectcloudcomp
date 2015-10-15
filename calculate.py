@@ -3,11 +3,15 @@ import urllib2
 import sys
 import subprocess
 
-app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 
+print "Working"
+app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
+print "Working"
 @app.task
 def calculate(adresses):
+    print "Working"
     subprocess.call("export LC_ALL=C",shell = True)
+    print "Working"
     for adress in adresses:
         adress = 'r2a9n200.msh.xml'
         #req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)

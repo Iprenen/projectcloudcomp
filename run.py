@@ -7,7 +7,7 @@ import swiftclient.client
 import json
 import time
 import urllib2
-sys.path.append('home/ubuntu/projectcloudcomp/navier_stokes_solver')
+sys.path.append("/navier_stokes_solver")
 from celery import Celery
 from celery import group
 from calculate import calculate

@@ -13,15 +13,16 @@ def calculate(adresses):
     subprocess.call("export LC_ALL=C",shell = True)
     print "Working"
     for adress in adresses:
-        crul = 'curl -o ' + adress +  ' http://smog.uppmax.uu.se:8080/swift/v1/g6proj/' + address
-        subprocess.call(curl, shell = True)
-        line = "navier_stokes_solver/airfoil 1 0.0001 10. 0.1 " + adress
+       # crul = 'curl -o ' + adress +  ' http://smog.uppmax.uu.se:8080/swift/v1/g6proj/' + address
+       # subprocess.call(curl, shell = True)
+        req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
+        response = urllib2.urlopen(req)
+        #obj = response.read()
+        line = "navier_stokes_solver/airfoil 1 0.0001 10. 0.1 " + response
         subprocess.call(line, shell = True)
         print "done with calculate"
 
 
 
-        #req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
-    #response = urllib2.urlopen(req)
-    #obj = response.read()
+        #
     

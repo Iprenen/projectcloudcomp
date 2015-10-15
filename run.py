@@ -10,12 +10,11 @@ import urllib2
 sys.path.append('/navier_stokes_solver')
 from celery import Celery
 from celery import group
-from tasks import wordcount
 from flask import Flask, jsonify
 from collections import Counter
 
 import subprocess
-import urkkib2
+import urllib2
 response = urllib2.urlopen()
 #file = response.read()
 

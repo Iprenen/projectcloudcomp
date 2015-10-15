@@ -25,11 +25,19 @@ meshObject = response.read().split()
 for t in meshObject:
     mesh.append(t)
 
-A = mesh[:4]
-B = mesh[4:]
+A = mesh[:5]
+B = mesh[5:10]
+C = mesh[10:15]
+D = mesh[15:20]
+E = mesh[20:26]
+F = mesh[26:]
 
 job = group(calculate.s(A), 
-            calculate.s(B))
+            calculate.s(B),
+            calculate.s(C),
+            calculate.s(D),
+            calculate.s(E),
+            calculate.s(F))
 
 meshTask = job.apply_async()
 print "Celery is working..."

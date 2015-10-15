@@ -6,7 +6,7 @@ import subprocess
 app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 
 @app.task
-def calculate():
+def calculate(adresses):
     subprocess.call("export LC_ALL=C",shell = True)
     for adress in adresses:
         adress = 'r2a9n200.msh.xml'

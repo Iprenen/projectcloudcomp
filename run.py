@@ -29,7 +29,7 @@ A = mesh[:4]
 B = mesh[4:]
 
 job = group(calculate.s(A), 
-            calculate.s(B),)
+            calculate.s(B))
 
 meshTask = job.apply_async()
 print "Celery is working..."

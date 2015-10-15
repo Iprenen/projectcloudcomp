@@ -14,15 +14,6 @@ from collections import Counter
 
 import subprocess
 import urllib2
-response = urllib2.urlopen()
-#file = response.read()
-
-line = "run.sh " + str(response)
-
-subprocess.call(line)
-
-
-toReturn = tweetTask.get()
 
 mesh = []
 req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj")

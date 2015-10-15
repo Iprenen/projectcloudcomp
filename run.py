@@ -47,13 +47,13 @@ job = group(calculate.s(A),
             calculate.s(E))
 
 tweetTask = job.apply_async()
-	print "Celery is working..."
-	counter = 0
-	while (tweetTask.ready() == False):
-		print "... %i s" %(counter)
-		counter += 5
-		time.sleep(5)
-	print "The task is done!
+    print "Celery is working..."
+    counter = 0
+    while (tweetTask.ready() == False):
+        print "... %i s" %(counter)
+        counter += 5
+        time.sleep(5)
+    print "The task is done!
 
 '''
 

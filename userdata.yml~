@@ -5,22 +5,22 @@ package_upgrade: true
 
 packages:
     - git
-    - cowsay
     - python-pip
     - python-virtualenv
     - rabbitmq-server
-    - python-openstackclient
+    - gmsh libmed1
 
 runcmd:
-    - pip install Flask
     - mkdir /home/ubuntu/tmp
-    - git clone https://github.com/TDB-UU/csaas.git
-    - git clone https://github.com/Iprenen/datormolnlabb3.git
-    - mv csaas home/ubuntu/csaas
+    - git clone https://github.com/Iprenen/projectcloudcomp.git
     - mkdir /home/ubuntu/messaging
-    - mv datormolnlabb3 home/ubuntu/messaging
+    - mkdir /home/ubuntu/messaging/geo
+    - mkdir /home/ubuntu/messaging/msh
+    - mv projectcloudcomp home/ubuntu/messaging
     - cd /messaging
     - virtualenv --no-site-packages venv
     - source venv/bin/activate
     - pip install celery
-    - 
+    - curl -s http://fenicsproject.org/fenics-install.sh | bash
+    - /home/ubuntu/messaging/projectcloudcomp/./run.sh 0 30 10 200 3
+

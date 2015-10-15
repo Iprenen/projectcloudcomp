@@ -19,7 +19,7 @@ import time
 if not nc.keypairs.findall(name="cloudproj"):
     with open(os.path.expanduser('cloudproj.pub')) as fpubkey:
         nc.keypairs.create(name="cloudproj", public_key=fpubkey.read())
-image = nc.images.find(name="Ubuntu Server 14.04 LTS (Trusty Tahr)")
+image = nc.images.find(name="MOLNS_OpenStack_Provider_1444166469")
 flavor = nc.flavors.find(name="m1.medium")
 user_data = open("userdata.yml", 'r')
 keyname = "cloudproj"

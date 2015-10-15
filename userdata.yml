@@ -9,6 +9,7 @@ packages:
     - python-virtualenv
     - rabbitmq-server
     - gmsh libmed1
+    - libdolfin-lib
 
 runcmd:
     - mkdir /home/ubuntu/tmp

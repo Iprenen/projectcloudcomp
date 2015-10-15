@@ -1,0 +1,9 @@
+from celery import Celery
+
+
+@app.calculate
+def calculate(adress)
+
+line = "run.sh " + str(t)
+subprocess.call(line)
+    

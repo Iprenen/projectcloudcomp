@@ -23,5 +23,4 @@ runcmd:
     - source venv/bin/activate
     - pip install celery
     - curl -s http://fenicsproject.org/fenics-install.sh | bash
-    - /home/ubuntu/messaging/projectcloudcomp/./run.sh 0 30 10 200 3
 

@@ -1,0 +1,9 @@
+import subprocess
+import urkkib2
+response = urllib2.urlopen()
+#file = response.read()
+
+line = "run.sh " + str(response)
+
+subprocess.call(line)
+

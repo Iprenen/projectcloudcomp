@@ -45,13 +45,6 @@ while (meshTask.ready() == False):
     counter += 5
     time.sleep(5)
 
-result = meshTask.get()
-
-target = open("result.txt", "w")
-target.truncate()
-
-target.write(result)
-target.close()
 print "The task is done!"
 
 

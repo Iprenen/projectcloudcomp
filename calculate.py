@@ -1,4 +1,5 @@
 from celery import Celery
+import urllib2
 
 app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 

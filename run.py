@@ -58,7 +58,7 @@ def run():
         time.sleep(5)
 
     print "The task is done!"
-
+    return redirect('/')
 
 
 @app.route('/')

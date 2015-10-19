@@ -10,8 +10,9 @@ app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152
 @app.task
 def calculate(adresses,args):
     print "started"
-    subprocess.call("export LC_ALL=C",shell = True)
+    #subprocess.call("export LC_ALL=C",shell = True)
     print "started with:"
+    return
     for adress in adresses:
         print adress
         curl = "curl -o " + adress +  " http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress
@@ -21,7 +22,7 @@ def calculate(adresses,args):
         #obj = response.read()
         line = "navier_stokes_solver/airfoil " + args + " " + adress
         print "line to run " + line 
-        subprocess.call("export LC_ALL=en_US.UTF-8",shell = True)
+        #subprocess.call("export LC_ALL=en_US.UTF-8",shell = True)
         subprocess.call(line, shell = True)
         subprocess.call("rm " + adress, shell = True)
         print "done with calculate"

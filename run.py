@@ -3,12 +3,12 @@
 import subprocess
 import sys
 import os
-import swiftclient.client
 import json
 import time
 import urllib2
 import sys
-sys.path.append("/navier_stokes_solver")
+from flask import Flask, render_template
+from flask import request, redirect
 from celery import Celery
 from celery import group
 from calculate import calculate
@@ -17,37 +17,53 @@ from collections import Counter
 import subprocess
 import urllib2
 
-mesh = []
-req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj")
-response = urllib2.urlopen(req)
-meshObject = response.read().split()
+app = Flask(__name__)
 
-for t in meshObject:
-    mesh.append(t)
+@app.route('/run', methods = ['POST'])
+def run():
+    sampels = request.form['sampels']
+    viscosity = request.form['viscosity']
+    speed = request.form['speed']
+    time = request.form['time']
+    
+    args = sampels + " " + viscosity + " " + speed + " " + time
+    mesh = []
+    req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj")
+    response = urllib2.urlopen(req)
+    meshObject = response.read().split()
 
-A = mesh[:5]
-B = mesh[5:10]
-C = mesh[10:15]
-D = mesh[15:20]
-E = mesh[20:26]
-F = mesh[26:]
+    for t in meshObject:
+        mesh.append(t)
 
-job = group(calculate.s(A), 
-            calculate.s(B),
-            calculate.s(C),
-            calculate.s(D),
-            calculate.s(E),
-            calculate.s(F))
+    A = mesh[:5]
+    B = mesh[5:10]
+    C = mesh[10:15]
+    D = mesh[15:20]
+    E = mesh[20:26]
+    F = mesh[26:]
+    
+    job = group(calculate.s(A,args), 
+            calculate.s(B,args),
+            calculate.s(C,args),
+            calculate.s(D,args),
+            calculate.s(E,args),
+            calculate.s(F,args))
 
-meshTask = job.apply_async()
-print "Celery is working..."
-counter = 0
-while (meshTask.ready() == False):
-    print "... %i s" %(counter)
-    counter += 5
-    time.sleep(5)
+    meshTask = job.apply_async()
+    print "Celery is working..."
+    counter = 0
+    while (meshTask.ready() == False):
+        print "... %i s" %(counter)
+        counter += 5
+        time.sleep(5)
 
-print "The task is done!"
+    print "The task is done!"
 
 
 
+@app.route('/')
+def hello_world():
+    return render_template('getData.html')
+
+if __name__ == "__main__":
+    app.run()

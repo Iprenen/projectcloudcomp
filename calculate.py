@@ -8,9 +8,9 @@ import subprocess
 app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
 
 @app.task
-def calculate(adresses):
+def calculate(adresses,args):
     print "started"
-    subprocess.call("export LC_ALL=C",shell = True)
+    #subprocess.call("export LC_ALL=C",shell = True)
     print "started with:"
     for adress in adresses:
         print adress
@@ -19,8 +19,11 @@ def calculate(adresses):
         #req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
         #response = urllib2.urlopen(req)
         #obj = response.read()
-        line = "navier_stokes_solver/airfoil 10 0.0001 10. 1 " + adress
+        line = "navier_stokes_solver/airfoil " + args + " " + adress
+        print "line to run " + line 
+        #subprocess.call("export LC_ALL=en_US.UTF-8",shell = True)
         subprocess.call(line, shell = True)
+        subprocess.call("rm " + adress, shell = True)
         print "done with calculate"
 
 

@@ -21,7 +21,9 @@ def calculate(adresses,args):
         #obj = response.read()
         line = "navier_stokes_solver/airfoil " + args + " " + adress
         print "line to run " + line 
+        subprocess.call("export LC_ALL=en_US.UTF-8",shell = True)
         subprocess.call(line, shell = True)
+        subprocess.call("rm " + adress, shell = True)
         print "done with calculate"
 
 

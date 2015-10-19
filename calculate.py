@@ -19,7 +19,7 @@ def calculate(adresses,args):
         #req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress)
         #response = urllib2.urlopen(req)
         #obj = response.read()
-        line = args + " " + adress
+        line = "navier_stokes_solver/airfoil " + args + " " + adress
         subprocess.call(line, shell = True)
         print "done with calculate"
 

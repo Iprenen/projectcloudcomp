@@ -33,7 +33,8 @@ def run():
     meshObject = response.read().split()
 
     for t in meshObject:
-        mesh.append(t)
+        if t.endswith(".xml"):
+            mesh.append(t)
 
     A = mesh[:5]
     B = mesh[5:10]

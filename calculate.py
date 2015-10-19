@@ -20,6 +20,7 @@ def calculate(adresses,args):
         #response = urllib2.urlopen(req)
         #obj = response.read()
         line = "navier_stokes_solver/airfoil " + args + " " + adress
+        print "line to run " + line 
         subprocess.call(line, shell = True)
         print "done with calculate"
 

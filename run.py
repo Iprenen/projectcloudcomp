@@ -75,8 +75,8 @@ def run():
         
     
     print "The task is done!"
-    return redirect('/')
-
+    #return redirect('/')
+    return render_template('getData.html',name=names)
 
 @app.route('/')
 def hello_world():

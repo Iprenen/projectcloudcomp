@@ -43,7 +43,7 @@ def plotMfile(o):
     image = open("static/"+pic_name,'w')
     plot(image, d, a, b, 'r--')
     image.close
-    return redirect("/static/" +  pic_name)
+    return  pic_name
 
 def plot(image, x, y, z, c):
 	a = pyplot.figure()

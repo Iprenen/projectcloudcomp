@@ -67,10 +67,11 @@ def run():
         time.sleep(5)
         
     results = meshTask.get()
+    names = []
     print results
-    for mFile in results:
-      #  for mFile in mFiles:
-        return plotMfile(mFile)
+    for mFiles in results:
+        for mFile in mFiles:
+            names.append(plotMfile(mFile))
         
     
     print "The task is done!"
@@ -79,7 +80,7 @@ def run():
 
 @app.route('/')
 def hello_world():
-    return render_template('getData.html')
+    return render_template('getData.html',name='empty')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)

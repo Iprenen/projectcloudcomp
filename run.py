@@ -70,7 +70,8 @@ def run():
     print results
     for mFile in results:
       #  for mFile in mFiles:
-        plotMfile(mFile)
+        return plotMfile(mFile)
+        
     
     print "The task is done!"
     return redirect('/')

@@ -23,6 +23,18 @@ def plotMfile(o):
     print l1.pop(0) #+ str(l1.pop(0))
     print l2.pop(0) #+ str(l2.pop(0))
     print l3.pop(0) #+ str(l3.pop(0))
+    #ignoring first values
+    l1.pop(0)
+    l2.pop(0)
+    l3.pop(0)
+    l1.pop(0)
+    l2.pop(0)
+    l3.pop(0)
+    l1.pop(0)
+    l2.pop(0)
+    l3.pop(0)
+
+
     a=np.array(l2, dtype=np.float)
     b=np.array(l3, dtype=np.float)
     c = a/b
@@ -31,7 +43,7 @@ def plotMfile(o):
     image = open("static/"+pic_name,'w')
     plot(image, d, a, b, 'r--')
     image.close
-    return redirect("/static" +  pic_name)
+    return redirect("/static/" +  pic_name)
 
 def plot(image, x, y, z, c):
 	a = pyplot.figure()

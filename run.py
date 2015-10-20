@@ -50,7 +50,7 @@ def run():
     D = mesh[:1]
     E = mesh[:1]
     F = mesh[:1]
-job = group(calculate.s(A,args))
+    job = group(calculate.s(A,args))
 #    job = group(calculate.s(A,args), 
 #            calculate.s(B,args),
 #            calculate.s(C,args),

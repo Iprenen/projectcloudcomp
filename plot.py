@@ -9,15 +9,13 @@ import numpy as np
 
 
 def plotMfile(o):
+    print o
     obj = o[0]
     task_name=o[1]
-    print "task name: " + task_name
+    print task_name
     tmp = obj.split()
-    print "temp is: "
-    print  tmp
     tmp.pop(0)
-    first_line = obj.readline()
-    print first_line 
+    print "...1"
     l1 = tmp[::3]
     l2=tmp[1::3]
     l3=tmp[2::3]

@@ -1,6 +1,5 @@
 from flask import Flask, render_template, send_file
 from flask import request, redirect
-from tasks import computeResults
 from celery import Celery, group
 import os
 import subprocess

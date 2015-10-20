@@ -15,12 +15,12 @@ def plotMfile(o):
     tmp = obj.split()
     tmp.pop(0)
     print "...1"
-    #l1 = tmp[::3]
-    #l2=tmp[1::3]
-    #l3=tmp[2::3]
-   # print l1.pop(0) #+ str(l1.pop(0))
-   # print l2.pop(0) #+ str(l2.pop(0))
-   # print l3.pop(0) #+ str(l3.pop(0))
+    l1 = tmp[::3]
+    l2=tmp[1::3]
+    l3=tmp[2::3]
+    print l1.pop(0) #+ str(l1.pop(0))
+    print l2.pop(0) #+ str(l2.pop(0))
+    print l3.pop(0) #+ str(l3.pop(0))
     a=np.array(l2, dtype=np.float)
     b=np.array(l3, dtype=np.float)
     c = a/b

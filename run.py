@@ -68,7 +68,8 @@ def run():
         
     results = meshTask.get()
     print results
-    for mFile in results:
+    for mFiles in results:
+        for mFile in mFiles
         plotMfile(mFile)
     
     print "The task is done!"

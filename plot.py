@@ -5,7 +5,7 @@ import os
 import subprocess
 import matplotlib
 import numpy as np
-
+from matplotlib import pyplot
 
 
 def plotMfile(o):

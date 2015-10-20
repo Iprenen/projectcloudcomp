@@ -5,6 +5,7 @@ import os
 import subprocess
 import matplotlib
 import numpy as np
+matplotlib.use('Agg')
 from matplotlib import pyplot
 
 

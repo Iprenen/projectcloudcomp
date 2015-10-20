@@ -36,13 +36,19 @@ def run():
         if t.endswith(".xml"):
             mesh.append(t)
 
-    A = mesh[:5]
-    B = mesh[5:10]
-    C = mesh[10:15]
-    D = mesh[15:20]
-    E = mesh[20:26]
-    F = mesh[26:]
-    
+    # A = mesh[:5]
+    # B = mesh[5:10]
+    # C = mesh[10:15]
+    # D = mesh[15:20]
+    # E = mesh[20:26]
+    # F = mesh[26:]
+
+    A = mesh[:1]
+    B = mesh[1:2]
+    C = mesh[:1]
+    D = mesh[:1]
+    E = mesh[:1]
+    F = mesh[:1]
     job = group(calculate.s(A,args), 
             calculate.s(B,args),
             calculate.s(C,args),

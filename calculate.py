@@ -27,9 +27,9 @@ def calculate(adresses,args):
 
         #not thread safe....
         file = open("results/drag_ligt.m", 'r')
-        toReturn = file.read()
-        result.append(toReturn + "_a"+str(5) +"_n"+str(8))
-        file.close()
+       # toReturn = file.read()
+        result.append(toReturn, "_a"+str(5) +"_n"+str(8))
+      #  file.close()
     return result
 
 

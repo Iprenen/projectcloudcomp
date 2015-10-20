@@ -13,7 +13,8 @@ def plotMfile(o):
     task_name=o[1]
     print "task name: " + task_name
     tmp = obj.split()
-    print "temp is: " + tmp
+    print "temp is: "
+    print  tmp
     tmp.pop(0)
   
     l1 = tmp[::3]

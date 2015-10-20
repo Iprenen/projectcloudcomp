@@ -19,7 +19,7 @@ import urllib2
 
 app = Flask(__name__)
 
-@app.route('/run', methods = ['POST'])
+@app.route('/run', methods = ['GET','POST'])
 def run():
     sampels = request.form['sampels']
     viscosity = request.form['viscosity']

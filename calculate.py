@@ -13,6 +13,7 @@ def calculate(adresses,args):
     subprocess.call("export LC_ALL=C",shell = True)
     print "started with:"
     result = []
+    return 0
     for adress in adresses:
         print adress
         curl = "curl -o " + adress +  " http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress

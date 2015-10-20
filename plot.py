@@ -13,8 +13,8 @@ def plotMfile(o):
     task_name=o[1]
     print "task name: " + task_name
     #tmp = obj.split()
-    print "temp is: "
-    print  tmp
+    #print "temp is: "
+   # print  tmp
     #tmp.pop(0)
     first_line = obj.readline()
     print first_line 

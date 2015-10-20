@@ -10,7 +10,7 @@ import numpy as np
 
 def plotMfile(o):
     obj = o[0]
-    task_name=o[1]
+    task_name="yolo"
     print "task name: " + task_name
     #tmp = obj.split()
     #print "temp is: "

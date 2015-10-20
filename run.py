@@ -19,7 +19,7 @@ import urllib2
 
 app = Flask(__name__)
 
-@app.route('/run', methods = ['GET','POST'])
+@app.route('/run', methods = ['POST'])
 def run():
     sampels = request.form['sampels']
     viscosity = request.form['viscosity']
@@ -64,7 +64,7 @@ def run():
         counter += 5
         time.sleep(5)
         
-    results = job.get()
+    results = meshTask.get()
     print "The task is done!"
     return redirect('/')
 

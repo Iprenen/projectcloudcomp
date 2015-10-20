@@ -30,7 +30,7 @@ def calculate(adresses,args):
         toReturn = file.read()
         result.append(toReturn)
         file.close()
-    return toReturn
+    return result
 
 
 

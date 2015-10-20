@@ -13,6 +13,7 @@ from celery import Celery
 from celery import group
 from calculate import calculate
 from collections import Counter
+from plot import plotMfile
 
 import subprocess
 import urllib2
@@ -65,6 +66,10 @@ def run():
         time.sleep(5)
         
     results = meshTask.get()
+    print results
+    for mFile in results:
+        plot(mFile)
+    
     print "The task is done!"
     return redirect('/')
 
@@ -75,3 +80,8 @@ def hello_world():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
+
+
+
+
+

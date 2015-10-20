@@ -12,6 +12,7 @@ def calculate(adresses,args):
     print "started"
     subprocess.call("export LC_ALL=C",shell = True)
     print "started with:"
+    result = []
     for adress in adresses:
         print adress
         curl = "curl -o " + adress +  " http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress
@@ -22,8 +23,12 @@ def calculate(adresses,args):
         subprocess.call(line, shell = True)
         subprocess.call("rm " + adress, shell = True)
         print "done with calculate"
+
+
+        #not thread safe....
         toReturn = open("results/drag_ligt.m", 'r').read()
-        return toReturn
+        result.append(toReturn)
+    return toReturn
 
 
 

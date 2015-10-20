@@ -44,12 +44,7 @@ def run():
     # E = mesh[20:26]
     # F = mesh[26:]
 
-    A = mesh[:1]
-    B = mesh[1:2]
-    C = mesh[:1]
-    D = mesh[:1]
-    E = mesh[:1]
-    F = mesh[:1]
+    A = mesh[:5]
     job = group(calculate.s(A,args))
 #    job = group(calculate.s(A,args), 
 #            calculate.s(B,args),

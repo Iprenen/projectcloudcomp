@@ -5,7 +5,7 @@ import subprocess
 
 
 
-app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.152/rabbithost')
+app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.53/rabbithost')
 
 @app.task
 def calculate(adresses,args):

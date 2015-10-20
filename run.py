@@ -57,7 +57,8 @@ def run():
         print "... %i s" %(counter)
         counter += 5
         time.sleep(5)
-
+        
+    results = job.get()
     print "The task is done!"
     return redirect('/')
 

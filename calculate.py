@@ -25,6 +25,8 @@ def calculate(adresses,args):
         subprocess.call(line, shell = True)
         subprocess.call("rm " + adress, shell = True)
         print "done with calculate"
+        toReturn = open("results/drag_ligt.m", 'r').read()
+        return toReturn
 
 
 

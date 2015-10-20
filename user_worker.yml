@@ -19,6 +19,5 @@ runcmd:
     - virtualenv --no-site-packages venv
     - source venv/bin/activate
     - pip install celery
-    - sudo -H -u ubuntu bash -c "celery worker -A calculate -n one.%h &"
-    - sudo -H -u ubuntu bash -c "celery worker -A calculate -n two.%h &"
+    - sudo -H -u ubuntu bash -c "celery worker -A calculate &"
 

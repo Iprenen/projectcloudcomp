@@ -49,7 +49,7 @@ def run():
     # F = mesh[26:]
     
     #A = mesh[:5]
-    job = group(calculate.s(q,args) for  q in meshObject)
+    job = group(calculate.s(q,args) for  q in mesh)
     #job = group(calculate.s(A,args))
     # job = group(calculate.s(A,args), 
     #         calculate.s(B,args),

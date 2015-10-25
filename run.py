@@ -35,25 +35,27 @@ def run():
 
     for t in meshObject:
         if t.endswith(".xml"):
-            mesh.append(t)
-
-    A = mesh[:5]
-    B = mesh[5:10]
-    C = mesh[10:15]
-    D = mesh[15:20]
-    E = mesh[20:26]
-    F = mesh[26:]
+                mesh = []
+                mesh.append(t)
+                calculate.(mesh)
+   # A = mesh[:5]
+   # B = mesh[5:10]
+   # C = mesh[10:15]
+   # D = mesh[15:20]
+   # E = mesh[20:26]
+   # F = mesh[26:]
 
     #A = mesh[:5]
     #job = group(calculate.s(A,args))
-    job = group(calculate.s(A,args), 
-            calculate.s(B,args),
-            calculate.s(C,args),
-            calculate.s(D,args),
-            calculate.s(E,args),
-            calculate.s(F,args))
+   # job = group(calculate.s(A,args), 
+   #         calculate.s(B,args),
+   #         calculate.s(C,args),
+    #        calculate.s(D,args),
+    #        calculate.s(E,args),
+     #       calculate.s(F,args))
 
-    meshTask = job.apply_async()
+    #meshTask = job.apply_async()
+    meshTask = meshObject.apply_async()
     print "Celery is working..."
     counter = 0
     while (meshTask.ready() == False):

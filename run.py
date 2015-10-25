@@ -21,11 +21,6 @@ import urllib2
 app = Flask(__name__)
 
 
-def grouper(n, iterable, fillvalue=None):
-    "grouper(3, 'ABCDEFG', 'x') --> ABC DEF Gxx"
-    args = [iter(iterable)] * n
-    return itertools.zip_longest(*args, fillvalue=fillvalue)
-
 @app.route('/run', methods = ['POST'])
 def run():
     sampels = request.form['sampels']
@@ -41,9 +36,8 @@ def run():
 
     for t in meshObject:
         if t.endswith(".xml"):
-            tempList = []
-            tempList.append(t)
-            mesh.append(calculate.s(tempList,args))
+            tempList = list(t)
+            mesh.append(tempList)
 
     # group = chunks(meshObject,5)
     # A = mesh[:5]
@@ -54,7 +48,7 @@ def run():
     # F = mesh[26:]
     
     #A = mesh[:5]
-    job = group(q for  q in meshObject)
+    job = group(calculate.s(q,args) for  q in meshObject)
     #job = group(calculate.s(A,args))
     # job = group(calculate.s(A,args), 
     #         calculate.s(B,args),

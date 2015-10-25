@@ -37,7 +37,7 @@ def run():
         if t.endswith(".xml"):
                 mesh = []
                 mesh.append(t)
-                calculate.(mesh)
+                calculate.(mesh,args)
    # A = mesh[:5]
    # B = mesh[5:10]
    # C = mesh[10:15]

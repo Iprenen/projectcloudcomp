@@ -20,6 +20,12 @@ import urllib2
 
 app = Flask(__name__)
 
+
+def grouper(n, iterable, fillvalue=None):
+    "grouper(3, 'ABCDEFG', 'x') --> ABC DEF Gxx"
+    args = [iter(iterable)] * n
+    return itertools.zip_longest(*args, fillvalue=fillvalue)
+
 @app.route('/run', methods = ['POST'])
 def run():
     sampels = request.form['sampels']
@@ -35,9 +41,11 @@ def run():
 
     for t in meshObject:
         if t.endswith(".xml"):
-                mesh = []
-                mesh.append(t)
-                calculate.s(mesh,args)
+            tempList = []
+            tempList.append(t)
+            mesh.append(calculate.s(tempList,args))
+
+  # group = chunks(meshObject,5)
    # A = mesh[:5]
    # B = mesh[5:10]
    # C = mesh[10:15]
@@ -54,8 +62,8 @@ def run():
     #        calculate.s(E,args),
      #       calculate.s(F,args))
 
-    #meshTask = job.apply_async()
-    meshTask = meshObject.apply_async()
+   # #meshTask = job.apply_async()
+    meshTask = mesh.apply_async()
     print "Celery is working..."
     counter = 0
     while (meshTask.ready() == False):

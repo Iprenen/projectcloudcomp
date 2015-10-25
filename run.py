@@ -45,25 +45,26 @@ def run():
             tempList.append(t)
             mesh.append(calculate.s(tempList,args))
 
-  # group = chunks(meshObject,5)
-   # A = mesh[:5]
-   # B = mesh[5:10]
-   # C = mesh[10:15]
-   # D = mesh[15:20]
-   # E = mesh[20:26]
-   # F = mesh[26:]
-
+    # group = chunks(meshObject,5)
+    # A = mesh[:5]
+    # B = mesh[5:10]
+    # C = mesh[10:15]
+    # D = mesh[15:20]
+    # E = mesh[20:26]
+    # F = mesh[26:]
+    
     #A = mesh[:5]
+    job = group(q for  q in meshObject)
     #job = group(calculate.s(A,args))
-   # job = group(calculate.s(A,args), 
-   #         calculate.s(B,args),
-   #         calculate.s(C,args),
+    # job = group(calculate.s(A,args), 
+    #         calculate.s(B,args),
+    #         calculate.s(C,args),
     #        calculate.s(D,args),
     #        calculate.s(E,args),
-     #       calculate.s(F,args))
+    #       calculate.s(F,args))
 
-   # #meshTask = job.apply_async()
-    meshTask = mesh.apply_async()
+    meshTask = job.apply_async()
+    # meshTask = mesh.apply_async()
     print "Celery is working..."
     counter = 0
     while (meshTask.ready() == False):

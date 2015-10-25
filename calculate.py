@@ -10,7 +10,7 @@ app = Celery('tasks', backend='amqp', broker='amqp://worker:worker@192.168.0.53/
 @app.task
 def calculate(adresses,args):
     print "started"
-    subprocess.call("sudo export LC_ALL=C",shell = True)
+    subprocess.call("export LC_ALL=C",shell = True)
     print "started with:"
     result = []
     for adress in adresses:

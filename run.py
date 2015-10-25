@@ -36,7 +36,8 @@ def run():
 
     for t in meshObject:
         if t.endswith(".xml"):
-            tempList = list(t)
+            tempList = []
+            tempList.append(t)
             mesh.append(tempList)
 
     # group = chunks(meshObject,5)

@@ -19,7 +19,7 @@ import time
 if not nc.keypairs.findall(name="cloudproj"):
     with open(os.path.expanduser('cloudproj.pub')) as fpubkey:
         nc.keypairs.create(name="cloudproj", public_key=fpubkey.read())
-image = nc.images.find(name="Group 6 worker snap")
+image = nc.images.find(name="Group-6-broker-snap")
 flavor = nc.flavors.find(name="m1.medium")
 user_data = open("userdata.yml", 'r')
 keyname = "cloudproj"

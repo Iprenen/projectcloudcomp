@@ -19,5 +19,6 @@ runcmd:
     - virtualenv --no-site-packages venv
     - source venv/bin/activate
     - pip install celery
+    - cd ~/messaging/projectcloudcomp
     - sudo -H -u ubuntu bash -c "celery worker -A calculate &"
 

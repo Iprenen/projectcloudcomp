@@ -28,7 +28,7 @@ def run():
     speed = request.form['speed']
     timeVar = request.form['time']
     
-    args = sampels + " " + viscosity + " " + speed + " " + timeVar + " 0"
+    args = sampels + " " + viscosity + " " + speed + " " + timeVar
     mesh = []
     req = urllib2.Request("http://smog.uppmax.uu.se:8080/swift/v1/g6proj")
     response = urllib2.urlopen(req)

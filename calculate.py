@@ -16,7 +16,7 @@ def calculate(adresses,args):
     for adress in adresses:
         print adress
         curl = "sudo curl -o " + adress +  " http://smog.uppmax.uu.se:8080/swift/v1/g6proj/" + adress
-        subprocess.call(curl, shell = True)
+       subprocess.call(curl, shell = True)
         line = "sudo navier_stokes_solver/airfoil " + args + " " + adress
         print "line to run " + line 
         subprocess.call("export LC_ALL=en_US.UTF-8",shell = True)

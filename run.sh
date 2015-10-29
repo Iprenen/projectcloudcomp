@@ -32,7 +32,7 @@ angle_start="$1"
 angle_stop="$2"
 n_angles="$3"
 n_nodes="$4"
-n_levels="$5"
+n_levels=0
 
 anglediff=$((($angle_stop-$angle_start)/$n_angles))
 for i in `seq 0 $n_angles`;

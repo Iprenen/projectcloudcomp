@@ -23,5 +23,6 @@ runcmd:
     - source venv/bin/activate
     - pip install Flask
     - pip install celery
+    - pip install flower
     - curl -s http://fenicsproject.org/fenics-install.sh | bash
 
